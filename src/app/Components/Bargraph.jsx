@@ -92,12 +92,14 @@ const Example = () => {
               barSize={13}
               style={{ height: 273 }}
               width={939}
+              radius={[50, 50, 50, 50]}
             >
               <XAxis dataKey="name" scale="point" />
-              <YAxis/>
+              <YAxis padding={{ right: 50, left: 50}} margin={{right:20 , bottom:20 }}/>
               <Tooltip />
               <Legend />
-              <Bar dataKey="pv" fill="#5570F1" background={{ fill: '#EEF0FA' }} className='rounded-full' />
+              <Bar dataKey="pv" radius={[50, 50, 50, 50]} legendType="circle"
+                fill="#5570F1" background={{ fill: '#EEF0FA' }} className='rounded-full' />
             </BarChart>
           </ResponsiveContainer>
         </div>

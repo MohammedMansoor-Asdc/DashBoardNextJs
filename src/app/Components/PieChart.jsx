@@ -5,6 +5,7 @@ import Chart from '../Components/chartConfig.js'
 
 export const data = {
   labels: ['Acquisition', 'Retention', 'Purchase'],
+  // legendType:"circle",
   datasets: [
     {
       data: [20, 12, 3],
@@ -18,8 +19,24 @@ export const data = {
   ],
 };
 
+const options = {
+  plugins: {
+    legend: {
+      display: true,
+      position: 'top', 
+      align: 'start', 
+      labels: {
+        usePointStyle: true, 
+        boxWidth: 10, 
+        padding: 10, 
+      },
+    },
+  },
+};
+
+
 function PieChart() {
-  return(
+  return (
     <>
       <div className='w-[321px] h-[337px] px-[20px] py-[21px] flex flex-col gap-[10px] bg-white ml-3 rounded-[12px] mt-4'>
         <div className='flex justify-between'>
@@ -28,19 +45,19 @@ function PieChart() {
           </div>
 
           <div>
-              <select className='bg-transparent text-superGray text-[12px] cursor-pointer'>
-                <option value="">This Week</option>
-                <option value="">This Month</option>
-                <option value="">This Year</option>
-              </select>
+            <select className='bg-transparent text-superGray text-[12px] cursor-pointer'>
+              <option value="">This Week</option>
+              <option value="">This Month</option>
+              <option value="">This Year</option>
+            </select>
           </div>
         </div>
         <div className='w-[205px] h-[205px]'>
-          <Doughnut data={data} />
+          <Doughnut options={options} data={data} />
         </div>
       </div>
-   </>
-   )
+    </>
+  )
 }
 
 export default PieChart;
